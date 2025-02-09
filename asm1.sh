@@ -26,18 +26,7 @@
 
 # For research purpose only. Please don't copy word for word. Avoid academic dishonesty. 
 
-echo "Remove old executable files if there are any"
-rm *.out
-
-echo "Assemble the X86 file triangle.asm, output object file triangle.o"
 nasm -f elf64 -o triangle.o triangle.asm
-
-# Note: We are using the C compiler gcc for this program
-echo "Compile the C file manager.c, output object file manager.o"
 gcc -c -m64 -Wall -fno-pie -no-pie -o manager.o manager.c
-
-echo "Link the two object files manager.o and triangle.o, output executable file learn.out"
-gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -o learn.out triangle.o manager.o -lm
-
-echo "Next the program "Triangle Assignment" will run"
-./learn.out
+gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -o triangle.out triangle.o manager.o -lm
+./triangle.out
