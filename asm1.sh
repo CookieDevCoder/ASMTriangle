@@ -34,10 +34,10 @@ nasm -f elf64 -o triangle.o triangle.asm
 
 # Note: We are using the C compiler gcc for this program
 echo "Compile the C file manager.c, output object file manager.o"
-gcc -c -m64 -Wall -fno-pie -no-pie -o manager.o managaer.c
+gcc -c -m64 -Wall -fno-pie -no-pie -o manager.o manager.c
 
-echo "Link the two object files manager.o and triangle.o, output executable file asm1.out"
-gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -lm -o asm1.out triangle.o manager.o
+echo "Link the two object files manager.o and triangle.o, output executable file learn.out"
+gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -o learn.out triangle.o manager.o -lm
 
 echo "Next the program "Triangle Assignment" will run"
-./asm1.out
+./learn.out

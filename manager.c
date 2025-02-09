@@ -25,12 +25,16 @@
 // For research purpose only. Please don't copy word for word. Avoid academic dishonesty. 
 
 #include <stdio.h>
-entern void triangle();
+
+extern double triangle();
 
 int main()
 {
-    printf("\nWelcome to Triangle Program by Brian Ayala")
+    printf("\nWelcome to Triangle Program by Brian Ayala\n");
+    printf("\nIf there are any errors, please report it to Brian Ayala at brianayala@csu.fullerton.edu\n\n");
 
-    triangle();
+    double answer = triangle();
+
+    printf("\nThe answer %f will be saved for when we need to use it\n\nThe program will now return a zero. Bye!\n", answer);
     return 0;
 }
