@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Program name: "Program Name". A short description of the purpose of the program
-# Copyright (C) <2023>  <Your Name>
+# Program name: "Triangle Assignment". Calculates the 3rd Side of a Triangle given the other information of the Triangle
+# Copyright (C) 2025  Brian Ayala
 
-# This file is part of the software program "Program Name".
+# This file is part of the software program "Triangle Assignment".
 
-# "Program Name" is free software: you can redistribute it and/or modify
+# "Triangle Assignment" is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
-# "Program Name" is distributed in the hope that it will be useful,
+# "Triangle Assignment" is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
@@ -19,10 +19,10 @@
 # along with this program.  If not, see <hFttps://www.gnu.org/licenses/>. 
 
 # Author information
-#   Author name : Code learnblin
-#   Author email: instalock_caitlyn@bronze2.botlane
-#   Author section: 240-99
-#   Author CWID : 000000000
+#   Author name : Brian Ayala
+#   Author email: brianayala2050@gnmail.com
+#   Author section: 240-09
+#   Author CWID : 884641556
 
 # For research purpose only. Please don't copy word for word. Avoid academic dishonesty. 
 
@@ -36,8 +36,8 @@ nasm -f elf64 -o triangle.o triangle.asm
 echo "Compile the C file manager.c, output object file manager.o"
 gcc -c -m64 -Wall -fno-pie -no-pie -o manager.o managaer.c
 
-echo "Link the two object files manager.o and triangle.o, output executable file learn.out"
-gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -lm -o learn.out triangle.o manager.o
+echo "Link the two object files manager.o and triangle.o, output executable file asm1.out"
+gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -lm -o asm1.out triangle.o manager.o
 
-echo "Next the program "Pizza Oven" will run"
-./learn.out
+echo "Next the program "Triangle Assignment" will run"
+./asm1.out
