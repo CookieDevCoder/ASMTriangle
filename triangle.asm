@@ -148,39 +148,38 @@ triangle:
     movsd   xmm1, [side2]
 
     ; Square each number
-    mulsd   xmm0, xmm0      ; a^2
-    mulsd   xmm1, xmm1      ; b^2
+    mulsd   xmm0, xmm0          ; a^2
+    mulsd   xmm1, xmm1          ; b^2
 
     ; add both squares together, and store it in xmm4
-    addsd   xmm1, xmm0      ; xmm1 = a^2 + b^2
-    movsd   [squared], xmm1 ; stores a^2 + b^2 in squared
+    addsd   xmm1, xmm0          ; xmm1 = a^2 + b^2
+    movsd   [squared], xmm1     ; stores a^2 + b^2 in squared
 
     ; store angle in xmm0
-    movsd   xmm0, [angle]   ; xmm0 = angle
+    movsd   xmm0, [angle]       ; xmm0 = angle
 
     ; convert degrees to radians
     movsd   xmm2, qword [toRadians]
-    mulsd   xmm0, xmm2      ; xmm0 = angle * (pi/180)
+    mulsd   xmm0, xmm2          ; xmm0 = angle * (pi/180)
 
 
     ; cos(angle)
-    call    cos             ; xmm0 = cos(angle)
-    movsd   xmm2, xmm0      ; move answer to xmm2
+    call    cos                 ; xmm0 = cos(angle)
+    movsd   xmm2, xmm0          ; move answer to xmm2
 
     ; Multiply cos(angle) by 2 * side1 * side 2
     movsd   xmm3, [side1]
-    mulsd   xmm3, [side2]   ; a * b
-    mulsd   xmm3, qword [two]     ; ab * 2
-
-    mulsd   xmm3, xmm2      ; xmm3 = cos(angle) * 2ab
+    mulsd   xmm3, [side2]       ; a * b
+    mulsd   xmm3, qword [two]   ; ab * 2
+    mulsd   xmm3, xmm2          ; xmm3 = cos(angle) * 2ab
 
     ; Compute final part of equation side1^2 side2^2 - 2(side1)(side2)*cos(angle)
-    movsd   xmm0, [squared]      ; a^2 + b^2 -> xmm0
-    subsd   xmm0, xmm3      ; a^2 + b^2 - (2ab * cos(angle))
+    movsd   xmm0, [squared]     ; a^2 + b^2 -> xmm0
+    subsd   xmm0, xmm3          ; a^2 + b^2 - (2ab * cos(angle))
 
     ; compute sqrt and store result in side3
     call sqrt
-    movsd [side3], xmm0     ; move answer to side3
+    movsd [side3], xmm0         ; move answer to side3
 
     ; print result
     mov     rax, 1
@@ -195,7 +194,9 @@ triangle:
     mov     rdx, name
     call    printf
 
+    ; Makes sure return value is side 3
     movsd   xmm0, [side3]
+    
     ; Restore the general purpose registers
     popf          
     pop     r15
